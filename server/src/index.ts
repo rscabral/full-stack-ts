@@ -1,4 +1,4 @@
-import { createApolloServer } from 'apollo-server';
+import { createApolloServer } from './apollo-server';
 import * as chalk from 'chalk';
 import * as express from 'express';
 import { createServer } from 'http';
