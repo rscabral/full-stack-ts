@@ -10,7 +10,7 @@ import { addResolversToSchema } from "@graphql-tools/schema";
 import { GRAPHQL_SCHEMA_PATH } from "./constants";
 import { Server } from "http";
 import Db from "./db";
-import resolvers from "./resolvers";
+import resolvers, { TwitterResolverContext } from "./resolvers";
 
 export async function createApolloServer(
   db: Db,
@@ -27,7 +27,7 @@ export async function createApolloServer(
       schema: SCHEMA,
       resolvers,
     }),
-    context: () => ({ db }),
+    context: (): TwitterResolverContext => ({ db }),
     plugins: [
       ApolloServerPluginDrainHttpServer({ httpServer }),
     ],
